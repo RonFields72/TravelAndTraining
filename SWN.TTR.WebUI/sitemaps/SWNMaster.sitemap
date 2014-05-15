@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+	<siteMapNode url="" title=""  description="" roles="*">
+    <siteMapNode url="~/Main.aspx" title="$Resources: SiteMap, Home"  description="$Resources: SiteMap, Home" />
+    <siteMapNode url="~/CreateNewRequest.aspx" title="$Resources: SiteMap, CreateNewRequest"  description="$Resources: SiteMap, CreateNewRequest" />
+  </siteMapNode>
+</siteMap>

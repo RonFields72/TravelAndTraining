@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TravelAndTrainingRequestRepository" targetNamespace="http://tempuri.org/TravelAndTrainingRequestRepository.xsd" xmlns:mstns="http://tempuri.org/TravelAndTrainingRequestRepository.xsd" xmlns="http://tempuri.org/TravelAndTrainingRequestRepository.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="cnTTR" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="cnTTR (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SWN.TTR.Properties.Settings.GlobalReference.Default.cnTTR" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RequestViewTableAdapter" GeneratorDataComponentClassName="RequestViewTableAdapter" Name="RequestView" UserDataComponentName="RequestViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectName="Training_Request.dbo.v_View_Requests" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetRequests" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetRequests" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetRequests" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Id, Requested_DateTime, Requested_By, Requested_By_Full_Name, Status, Status_Description, Pending_Review_By, 
+                      Pending_Review_By_Full_Name, Event_Name, Total_Cost, Event_Start_Date
+FROM         v_View_Requests
+ORDER BY Requested_DateTime DESC;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Requested_DateTime" DataSetColumn="Requested_DateTime" />
+              <Mapping SourceColumn="Requested_By" DataSetColumn="Requested_By" />
+              <Mapping SourceColumn="Requested_By_Full_Name" DataSetColumn="Requested_By_Full_Name" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Status_Description" DataSetColumn="Status_Description" />
+              <Mapping SourceColumn="Pending_Review_By" DataSetColumn="Pending_Review_By" />
+              <Mapping SourceColumn="Pending_Review_By_Full_Name" DataSetColumn="Pending_Review_By_Full_Name" />
+              <Mapping SourceColumn="Event_Name" DataSetColumn="Event_Name" />
+              <Mapping SourceColumn="Total_Cost" DataSetColumn="Total_Cost" />
+              <Mapping SourceColumn="Event_Start_Date" DataSetColumn="Event_Start_Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectName="Training_Request.dbo.v_View_Requests" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByPendingReviewer" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetRequestsByPendingReviewer" GeneratorSourceName="FillByPendingReviewer" GetMethodModifier="Public" GetMethodName="GetRequestsByPendingReviewer" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetRequestsByPendingReviewer" UserSourceName="FillByPendingReviewer">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Event_Name, Event_Start_Date, Id, Pending_Review_By, Pending_Review_By_Full_Name, Requested_By, Requested_By_Full_Name, Requested_DateTime, Status, Status_Description, Total_Cost FROM v_View_Requests WHERE (Pending_Review_By = @Pending_Review_By) ORDER BY Requested_DateTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Pending_Review_By" ColumnName="Pending_Review_By" DataSourceName="Training_Request.dbo.v_View_Requests" DataTypeServer="varchar(25)" DbType="AnsiString" Direction="Input" ParameterName="@Pending_Review_By" Precision="0" ProviderType="VarChar" Scale="0" Size="25" SourceColumn="Pending_Review_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectName="Training_Request.dbo.v_View_Requests" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByRequestor" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetRequestsByRequestor" GeneratorSourceName="FillByRequestor" GetMethodModifier="Public" GetMethodName="GetRequestsByRequestor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetRequestsByRequestor" UserSourceName="FillByRequestor">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Event_Name, Event_Start_Date, Id, Pending_Review_By, Pending_Review_By_Full_Name, Requested_By, Requested_By_Full_Name, Requested_DateTime, Status, Status_Description, Total_Cost FROM v_View_Requests WHERE (Requested_By = @Requested_By) ORDER BY Requested_DateTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Requested_By" ColumnName="Requested_By" DataSourceName="Training_Request.dbo.v_View_Requests" DataTypeServer="varchar(25)" DbType="AnsiString" Direction="Input" ParameterName="@Requested_By" Precision="0" ProviderType="VarChar" Scale="0" Size="25" SourceColumn="Requested_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectName="Training_Request.dbo.v_View_Requests" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByRequestorStatus" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetRequestsByRequestorStatus" GeneratorSourceName="FillByRequestorStatus" GetMethodModifier="Public" GetMethodName="GetRequestsByRequestorStatus" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetRequestsByRequestorStatus" UserSourceName="FillByRequestorStatus">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Event_Name, Event_Start_Date, Id, Pending_Review_By, Pending_Review_By_Full_Name, Requested_By, Requested_By_Full_Name, Requested_DateTime, Status, Status_Description, Total_Cost FROM v_View_Requests WHERE (Requested_By = @Requested_By) AND (Status = @Status) ORDER BY Requested_DateTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Requested_By" ColumnName="Requested_By" DataSourceName="Training_Request.dbo.v_View_Requests" DataTypeServer="varchar(25)" DbType="AnsiString" Direction="Input" ParameterName="@Requested_By" Precision="0" ProviderType="VarChar" Scale="0" Size="25" SourceColumn="Requested_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Status" ColumnName="Status" DataSourceName="Training_Request.dbo.v_View_Requests" DataTypeServer="char(3)" DbType="AnsiString" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="Char" Scale="0" Size="3" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ApproverViewTableAdapter" GeneratorDataComponentClassName="ApproverViewTableAdapter" Name="ApproverView" UserDataComponentName="ApproverViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT a.Event_Name
+, a.Event_Start_Date
+, a.Id
+, b.Reviewed_By
+, a.Requested_By
+, a.Requested_By_Full_Name
+, a.Requested_DateTime
+, a.[Status]
+, b.Reviewal_Status_Id
+, a.Status_Description
+, a.Total_Cost 
+
+FROM v_View_Requests a 
+Left Outer Join dbo.Approval_Audit b on a.Id = b.Id
+
+ORDER BY Requested_DateTime DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Event_Name" DataSetColumn="Event_Name" />
+              <Mapping SourceColumn="Event_Start_Date" DataSetColumn="Event_Start_Date" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Reviewed_By" DataSetColumn="Reviewed_By" />
+              <Mapping SourceColumn="Requested_By" DataSetColumn="Requested_By" />
+              <Mapping SourceColumn="Requested_By_Full_Name" DataSetColumn="Requested_By_Full_Name" />
+              <Mapping SourceColumn="Requested_DateTime" DataSetColumn="Requested_DateTime" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Reviewal_Status_Id" DataSetColumn="Reviewal_Status_Id" />
+              <Mapping SourceColumn="Status_Description" DataSetColumn="Status_Description" />
+              <Mapping SourceColumn="Total_Cost" DataSetColumn="Total_Cost" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="cnTTR (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByApprover" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByApprover" GeneratorSourceName="FillByApprover" GetMethodModifier="Public" GetMethodName="GetDataByApprover" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByApprover" UserSourceName="FillByApprover">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT a.Event_Name
+, a.Event_Start_Date
+, a.Id
+, a.Pending_Review_By
+, a.Requested_By
+, a.Requested_By_Full_Name
+, a.Requested_DateTime
+, a.[Status]
+, a.Status_Description
+, a.Total_Cost 
+, c.Final_Reviewed_By
+
+
+FROM v_View_Requests a 
+Left Outer Join dbo.Approval_Audit b on a.Id = b.Request_Id
+Left Outer Join dbo.Travel_Training_Request c on a.Id = c.Id
+WHERE a.[Status] = 'APR'
+	 AND  c.Final_Reviewed_By = @Reviewed_By
+	 AND a.[Status] &lt;&gt; 'PEN'
+	 AND a.[Status] &lt;&gt; 'RTE'
+	 AND a.[Status] &lt;&gt; 'NEW'
+	 AND a.[Status] &lt;&gt; 'DNY'
+   
+GROUP BY a.Event_Name
+, a.Event_Start_Date
+, a.Id
+, a.Pending_Review_By
+, a.Requested_By
+, a.Requested_By_Full_Name
+, a.Requested_DateTime
+, a.[Status]
+, a.Status_Description
+, a.Total_Cost 
+, c.Final_Reviewed_By
+
+ORDER BY a.Requested_DateTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Reviewed_By" ColumnName="Final_Reviewed_By" DataSourceName="Training_Request.dbo.Travel_Training_Request" DataTypeServer="varchar(25)" DbType="AnsiString" Direction="Input" ParameterName="@Reviewed_By" Precision="0" ProviderType="VarChar" Scale="0" Size="25" SourceColumn="Final_Reviewed_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TravelAndTrainingRequestRepository" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TravelAndTrainingRequestRepository" msprop:Generator_DataSetName="TravelAndTrainingRequestRepository" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RequestView" msprop:Generator_UserTableName="RequestView" msprop:Generator_RowDeletedName="RequestViewRowDeleted" msprop:Generator_RowChangedName="RequestViewRowChanged" msprop:Generator_RowClassName="RequestViewRow" msprop:Generator_RowChangingName="RequestViewRowChanging" msprop:Generator_RowEvArgName="RequestViewRowChangeEvent" msprop:Generator_RowEvHandlerName="RequestViewRowChangeEventHandler" msprop:Generator_TableClassName="RequestViewDataTable" msprop:Generator_TableVarName="tableRequestView" msprop:Generator_RowDeletingName="RequestViewRowDeleting" msprop:Generator_TablePropName="RequestView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:int" />
+              <xs:element name="Requested_DateTime" msprop:Generator_UserColumnName="Requested_DateTime" msprop:Generator_ColumnPropNameInRow="Requested_DateTime" msprop:Generator_ColumnVarNameInTable="columnRequested_DateTime" msprop:Generator_ColumnPropNameInTable="Requested_DateTimeColumn" type="xs:dateTime" />
+              <xs:element name="Requested_By" msprop:Generator_UserColumnName="Requested_By" msprop:Generator_ColumnPropNameInRow="Requested_By" msprop:Generator_ColumnVarNameInTable="columnRequested_By" msprop:Generator_ColumnPropNameInTable="Requested_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Requested_By_Full_Name" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Requested_By_Full_Name" msprop:Generator_ColumnPropNameInRow="Requested_By_Full_Name" msprop:Generator_ColumnVarNameInTable="columnRequested_By_Full_Name" msprop:Generator_ColumnPropNameInTable="Requested_By_Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="102" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInTable="StatusColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_Description" msprop:Generator_UserColumnName="Status_Description" msprop:Generator_ColumnPropNameInRow="Status_Description" msprop:Generator_ColumnVarNameInTable="columnStatus_Description" msprop:Generator_ColumnPropNameInTable="Status_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pending_Review_By" msprop:Generator_UserColumnName="Pending_Review_By" msprop:Generator_ColumnPropNameInRow="Pending_Review_By" msprop:Generator_ColumnVarNameInTable="columnPending_Review_By" msprop:Generator_ColumnPropNameInTable="Pending_Review_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pending_Review_By_Full_Name" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Pending_Review_By_Full_Name" msprop:Generator_ColumnPropNameInRow="Pending_Review_By_Full_Name" msprop:Generator_ColumnVarNameInTable="columnPending_Review_By_Full_Name" msprop:Generator_ColumnPropNameInTable="Pending_Review_By_Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="102" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Event_Name" msprop:Generator_UserColumnName="Event_Name" msprop:Generator_ColumnPropNameInRow="Event_Name" msprop:Generator_ColumnVarNameInTable="columnEvent_Name" msprop:Generator_ColumnPropNameInTable="Event_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_Cost" msprop:Generator_UserColumnName="Total_Cost" msprop:Generator_ColumnPropNameInRow="Total_Cost" msprop:Generator_ColumnVarNameInTable="columnTotal_Cost" msprop:Generator_ColumnPropNameInTable="Total_CostColumn" type="xs:decimal" />
+              <xs:element name="Event_Start_Date" msprop:Generator_UserColumnName="Event_Start_Date" msprop:Generator_ColumnVarNameInTable="columnEvent_Start_Date" msprop:Generator_ColumnPropNameInRow="Event_Start_Date" msprop:Generator_ColumnPropNameInTable="Event_Start_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ApproverView" msprop:Generator_UserTableName="ApproverView" msprop:Generator_RowDeletedName="ApproverViewRowDeleted" msprop:Generator_RowChangedName="ApproverViewRowChanged" msprop:Generator_RowClassName="ApproverViewRow" msprop:Generator_RowChangingName="ApproverViewRowChanging" msprop:Generator_RowEvArgName="ApproverViewRowChangeEvent" msprop:Generator_RowEvHandlerName="ApproverViewRowChangeEventHandler" msprop:Generator_TableClassName="ApproverViewDataTable" msprop:Generator_TableVarName="tableApproverView" msprop:Generator_RowDeletingName="ApproverViewRowDeleting" msprop:Generator_TablePropName="ApproverView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Event_Name" msprop:Generator_UserColumnName="Event_Name" msprop:Generator_ColumnPropNameInRow="Event_Name" msprop:Generator_ColumnVarNameInTable="columnEvent_Name" msprop:Generator_ColumnPropNameInTable="Event_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Event_Start_Date" msprop:Generator_UserColumnName="Event_Start_Date" msprop:Generator_ColumnPropNameInRow="Event_Start_Date" msprop:Generator_ColumnVarNameInTable="columnEvent_Start_Date" msprop:Generator_ColumnPropNameInTable="Event_Start_DateColumn" type="xs:dateTime" />
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:int" />
+              <xs:element name="Reviewed_By" msprop:Generator_UserColumnName="Reviewed_By" msprop:Generator_ColumnPropNameInRow="Reviewed_By" msprop:Generator_ColumnVarNameInTable="columnReviewed_By" msprop:Generator_ColumnPropNameInTable="Reviewed_ByColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Requested_By" msprop:Generator_UserColumnName="Requested_By" msprop:Generator_ColumnPropNameInRow="Requested_By" msprop:Generator_ColumnVarNameInTable="columnRequested_By" msprop:Generator_ColumnPropNameInTable="Requested_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Requested_By_Full_Name" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Requested_By_Full_Name" msprop:Generator_ColumnPropNameInRow="Requested_By_Full_Name" msprop:Generator_ColumnVarNameInTable="columnRequested_By_Full_Name" msprop:Generator_ColumnPropNameInTable="Requested_By_Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="102" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Requested_DateTime" msprop:Generator_UserColumnName="Requested_DateTime" msprop:Generator_ColumnPropNameInRow="Requested_DateTime" msprop:Generator_ColumnVarNameInTable="columnRequested_DateTime" msprop:Generator_ColumnPropNameInTable="Requested_DateTimeColumn" type="xs:dateTime" />
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInTable="StatusColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reviewal_Status_Id" msprop:Generator_UserColumnName="Reviewal_Status_Id" msprop:Generator_ColumnPropNameInRow="Reviewal_Status_Id" msprop:Generator_ColumnVarNameInTable="columnReviewal_Status_Id" msprop:Generator_ColumnPropNameInTable="Reviewal_Status_IdColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_Description" msprop:Generator_UserColumnName="Status_Description" msprop:Generator_ColumnPropNameInRow="Status_Description" msprop:Generator_ColumnVarNameInTable="columnStatus_Description" msprop:Generator_ColumnPropNameInTable="Status_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_Cost" msprop:Generator_UserColumnName="Total_Cost" msprop:Generator_ColumnPropNameInRow="Total_Cost" msprop:Generator_ColumnVarNameInTable="columnTotal_Cost" msprop:Generator_ColumnPropNameInTable="Total_CostColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RequestView" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="ApproverView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ApproverView" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

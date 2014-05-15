@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://fay-deviis02/ICC/ODS/StateService.asmx?wsdl" docRef="http://fay-deviis02/ICC/ODS/StateService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://fay-deviis02/ICC/ODS/StateService.asmx" xmlns:q1="http://swn.com/ods/StateService" binding="q1:StateServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://fay-deviis02/ICC/ODS/StateService.asmx" xmlns:q2="http://swn.com/ods/StateService" binding="q2:StateServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

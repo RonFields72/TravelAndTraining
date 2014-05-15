@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body,table {{font-family:Arial;font-size:10pt;}}
+        #content {{ padding: 4px; }}
+        .message {{margin: 4px 0px 4px 0px;}}
+        .label {{font-weight:bold;color:Navy;text-align:left;width:150px;border-right:solid 1px Gray;font-size:9pt;}}
+        div.header {{background-color:Gray;color:White;Font-size:10pt;border:solid 1px black;font-weight:bold;width:700px;}}
+        .linkbox {{padding:2px;background-color:#f1f1f1;border:solid 1px gray;width:600px;margin-bottom:10px;}}
+        .warning {{font-weight:bold;color:red;font-size:8pt;}}
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="header">Travel and Training Request Notification</div>
+        <p class="message">A request has been submitted for your review.  Please click <a href="{0}" title="Your Pending Requests" target="_blank">here</a> to view your pending requests.</p>        
+        <table>
+            <tr>
+                <td class="label">Event Name</td>
+                <td>{1}</td>
+            </tr>
+            <tr>
+                <td class="label">Event Start</td>
+                <td>{2}</td>
+            </tr>
+            <tr>
+                <td class="label">Event End</td>
+                <td>{3}</td>
+            </tr>
+            <tr>
+                <td class="label">Requested By</td>
+                <td>{4}</td>
+            </tr>            
+            <tr>
+                <td class="label">Total Cost</td>
+                <td>{5}</td>
+            </tr>
+        </table>
+     </div>        
+</body>
+</html>

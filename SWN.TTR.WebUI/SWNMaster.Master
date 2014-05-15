@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SWNMaster.Master.cs" Inherits="SWN.TTR.WebUI.SWNMaster" EnableTheming="true" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    <link href="styles.css" type="text/css" rel="Stylesheet" />
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">    
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </cc1:ToolkitScriptManager>
+    <div id="container">
+            <div id="header">
+                <table border="0" class="swn_header">
+                    <tr>
+                        <td class="swn_leftHeaderImageSpacer">
+                        </td>
+                        <td class="swn_appname">
+                            <span class="swn_textAppName">
+                                <asp:Literal ID="title" runat="server" Text='<%$Resources:Resources, ApplicationName  %>'
+                                    EnableViewState="false"></asp:Literal></span>
+                        </td>
+                        <td class="swn_globalmenu">
+                            <asp:Menu ID="menuGlobal" runat="server" Orientation="Horizontal" SkinID="SWNMenuHeader"
+                                EnableViewState="false">
+                                <Items>
+                                    <asp:MenuItem NavigateUrl="~/Main.aspx" Text='<%$Resources: SiteMap, Home %>' Value='<%$Resources: SiteMap, Home %>'>
+                                    </asp:MenuItem>
+                                </Items>
+                            </asp:Menu>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="navigationbar">
+                <div class="menu">
+                    <asp:ContentPlaceHolder ID="cphMenu" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="userinfo">
+                    <span class="swn_textUserInfo">
+                        <%=String.Format(Resources.Resources.MasterUser, System.Environment.UserName, DateTime.Now.ToString(Resources.Resources.MasterDateFormat)) %>
+                    </span>
+                </div>
+            </div>
+            <div id="contents" class="swn_text">
+                <asp:ContentPlaceHolder ID="cphContents" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="footer">
+                <div class="swn_footerCopyright">
+                    <span class="swn_textFooterCopyright">
+                        <asp:Literal ID="copyright" runat="server" EnableViewState="false" Text='<%$ Resources:Resources, FooterCopyright %>'></asp:Literal></span>
+                </div>
+                <div class="swn_footerLinks">
+                    <asp:Menu ID="menuFooter" runat="server" Orientation="Horizontal" EnableViewState="false"
+                        SkinID="SWNMenuFooter">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Main.aspx" Text='<%$Resources: SiteMap, Home %>' Value='<%$Resources: SiteMap, Home %>'>
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

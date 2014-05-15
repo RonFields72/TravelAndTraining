@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://fay-deviis02/ICC/ODS/RolesService.asmx?wsdl" docRef="http://fay-deviis02/ICC/ODS/RolesService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://fay-deviis02/ICC/ODS/RolesService.asmx" xmlns:q1="http://swn.com/ICC/ODS/RolesService" binding="q1:RolesServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://fay-deviis02/ICC/ODS/RolesService.asmx" xmlns:q2="http://swn.com/ICC/ODS/RolesService" binding="q2:RolesServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

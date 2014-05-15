@@ -1,0 +1,4 @@
+* Add LINQ to SQL for the RequestView for efficient paging of data
+* AJAX some parts of the site (saving, submitting, ground transportation, etc.)
+* Refactor the strings into a resource file.
+* Use NHibernate for DALC and refactor using a repository pattern.

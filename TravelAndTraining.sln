@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "externalAssemblies", "externalAssemblies", "{5A925148-5C64-4B23-88F2-85674DE6A157}"
+	ProjectSection(SolutionItems) = preProject
+		Microsoft.Practices.EnterpriseLibrary.Common.dll = Microsoft.Practices.EnterpriseLibrary.Common.dll
+		Microsoft.Practices.EnterpriseLibrary.Validation.dll = Microsoft.Practices.EnterpriseLibrary.Validation.dll
+		Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.dll = Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet.dll
+		Microsoft.Practices.ObjectBuilder2.dll = Microsoft.Practices.ObjectBuilder2.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69B492E6-9636-4DFD-90DB-193C7AE214D9}"
+	ProjectSection(SolutionItems) = preProject
+		WishList.txt = WishList.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWN.TTR", "SWN.TTR\SWN.TTR.csproj", "{BF3305A7-981D-4299-8852-281ABEFC3F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWN.TTR.WebUI", "SWN.TTR.WebUI\SWN.TTR.WebUI.csproj", "{452D951B-0054-4102-BCA9-4DF7FD842144}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{BF3305A7-981D-4299-8852-281ABEFC3F6E}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{452D951B-0054-4102-BCA9-4DF7FD842144}.Staging|Any CPU.Build.0 = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

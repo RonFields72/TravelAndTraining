@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://swn.com/ICC/ODS/RolesService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://swn.com/ICC/ODS/RolesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://swn.com/ICC/ODS/RolesService">
+      <s:element name="GetRolesForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="system" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subsystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesForUserResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUsersInRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="system" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subsystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersInRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersInRoleResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRolesForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRolesForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsersInRole" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersInRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesForUserHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="system" type="s:string" />
+    <wsdl:part name="subsystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleHttpGetIn">
+    <wsdl:part name="role" type="s:string" />
+    <wsdl:part name="system" type="s:string" />
+    <wsdl:part name="subsystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesForUserHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="system" type="s:string" />
+    <wsdl:part name="subsystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleHttpPostIn">
+    <wsdl:part name="role" type="s:string" />
+    <wsdl:part name="system" type="s:string" />
+    <wsdl:part name="subsystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersInRoleHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="RolesServiceSoap">
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input message="tns:GetRolesForUserSoapIn" />
+      <wsdl:output message="tns:GetRolesForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input message="tns:GetUsersInRoleSoapIn" />
+      <wsdl:output message="tns:GetUsersInRoleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RolesServiceHttpGet">
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input message="tns:GetRolesForUserHttpGetIn" />
+      <wsdl:output message="tns:GetRolesForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input message="tns:GetUsersInRoleHttpGetIn" />
+      <wsdl:output message="tns:GetUsersInRoleHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RolesServiceHttpPost">
+    <wsdl:operation name="GetRolesForUser">
+      <wsdl:input message="tns:GetRolesForUserHttpPostIn" />
+      <wsdl:output message="tns:GetRolesForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <wsdl:input message="tns:GetUsersInRoleHttpPostIn" />
+      <wsdl:output message="tns:GetUsersInRoleHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RolesServiceSoap" type="tns:RolesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRolesForUser">
+      <soap:operation soapAction="http://swn.com/ICC/ODS/RolesService/GetRolesForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <soap:operation soapAction="http://swn.com/ICC/ODS/RolesService/GetUsersInRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RolesServiceSoap12" type="tns:RolesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRolesForUser">
+      <soap12:operation soapAction="http://swn.com/ICC/ODS/RolesService/GetRolesForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <soap12:operation soapAction="http://swn.com/ICC/ODS/RolesService/GetUsersInRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RolesServiceHttpGet" type="tns:RolesServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetRolesForUser">
+      <http:operation location="/GetRolesForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <http:operation location="/GetUsersInRole" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RolesServiceHttpPost" type="tns:RolesServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetRolesForUser">
+      <http:operation location="/GetRolesForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInRole">
+      <http:operation location="/GetUsersInRole" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RolesService">
+    <wsdl:port name="RolesServiceSoap" binding="tns:RolesServiceSoap">
+      <soap:address location="http://fay-deviis02/ICC/ODS/RolesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RolesServiceSoap12" binding="tns:RolesServiceSoap12">
+      <soap12:address location="http://fay-deviis02/ICC/ODS/RolesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RolesServiceHttpGet" binding="tns:RolesServiceHttpGet">
+      <http:address location="http://fay-deviis02/ICC/ODS/RolesService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RolesServiceHttpPost" binding="tns:RolesServiceHttpPost">
+      <http:address location="http://fay-deviis02/ICC/ODS/RolesService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

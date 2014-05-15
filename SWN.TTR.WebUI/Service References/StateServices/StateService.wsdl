@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://swn.com/ods/StateService" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://swn.com/ods/StateService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://swn.com/ods/StateService">
+      <s:element name="GetAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllResult" type="tns:ArrayOfState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfState">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="State" nillable="true" type="tns:State" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="State">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByIdResult" type="tns:State" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfState" nillable="true" type="tns:ArrayOfState" />
+      <s:element name="State" nillable="true" type="tns:State" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHttpGetIn" />
+  <wsdl:message name="GetAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfState" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:State" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHttpPostIn" />
+  <wsdl:message name="GetAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfState" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetByIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:State" />
+  </wsdl:message>
+  <wsdl:portType name="StateServiceSoap">
+    <wsdl:operation name="GetAll">
+      <wsdl:input message="tns:GetAllSoapIn" />
+      <wsdl:output message="tns:GetAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <wsdl:input message="tns:GetByIdSoapIn" />
+      <wsdl:output message="tns:GetByIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="StateServiceHttpGet">
+    <wsdl:operation name="GetAll">
+      <wsdl:input message="tns:GetAllHttpGetIn" />
+      <wsdl:output message="tns:GetAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <wsdl:input message="tns:GetByIdHttpGetIn" />
+      <wsdl:output message="tns:GetByIdHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="StateServiceHttpPost">
+    <wsdl:operation name="GetAll">
+      <wsdl:input message="tns:GetAllHttpPostIn" />
+      <wsdl:output message="tns:GetAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <wsdl:input message="tns:GetByIdHttpPostIn" />
+      <wsdl:output message="tns:GetByIdHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StateServiceSoap" type="tns:StateServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://swn.com/ods/StateService/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://swn.com/ods/StateService/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StateServiceSoap12" type="tns:StateServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAll">
+      <soap12:operation soapAction="http://swn.com/ods/StateService/GetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <soap12:operation soapAction="http://swn.com/ods/StateService/GetById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StateServiceHttpGet" type="tns:StateServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetAll">
+      <http:operation location="/GetAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <http:operation location="/GetById" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StateServiceHttpPost" type="tns:StateServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetAll">
+      <http:operation location="/GetAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetById">
+      <http:operation location="/GetById" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StateService">
+    <wsdl:port name="StateServiceSoap" binding="tns:StateServiceSoap">
+      <soap:address location="http://fay-deviis02/ICC/ODS/StateService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StateServiceSoap12" binding="tns:StateServiceSoap12">
+      <soap12:address location="http://fay-deviis02/ICC/ODS/StateService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StateServiceHttpGet" binding="tns:StateServiceHttpGet">
+      <http:address location="http://fay-deviis02/ICC/ODS/StateService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StateServiceHttpPost" binding="tns:StateServiceHttpPost">
+      <http:address location="http://fay-deviis02/ICC/ODS/StateService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

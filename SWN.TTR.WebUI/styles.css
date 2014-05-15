@@ -1,0 +1,108 @@
+﻿.status
+{
+    font-weight: bold;
+    color: Navy;
+}
+
+.center
+{
+    text-align: center;
+}
+
+h2
+{
+    font-size: medium;
+    color: Navy;
+    margin: 3px 0px 5px 0px;
+}
+
+a.button:link,
+a.button:active
+{
+    margin: 0px 0px 0px 0px;
+	text-decoration: 'underline';
+}
+
+a.button:hover
+{
+	background-color: #425F96;
+	color: #FFF;
+}
+
+a.button:visited
+{
+	font-weight: normal;
+}
+
+fieldset
+{
+    margin-bottom: 5px;
+}
+
+.error
+{
+    font-weight: bold;
+    color: Red;
+}
+
+table.menu
+{
+	font-family: Arial, Sans-Serif;
+	font-size: 12px;
+	line-height: 30px;
+}
+
+table.menu td
+{
+	padding: 0px 9px 0px 0px;
+}
+
+a.menu
+{
+	margin: 0px 0px 0px 0px;
+	text-decoration: none;
+	color: White;
+}
+
+a.menumouseover
+{	
+	margin: 0px 0px 0px 0px;
+	text-decoration: none;
+	color: #76EEC6;
+}
+
+/************Validation Popup********************/
+
+/*Modal Popup*/
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+.modalPopup {
+	background-color:#ffffdd;
+	border-width:3px;
+	border-style:solid;
+	border-color:Gray;
+	padding:3px;
+	width:250px;
+}
+
+/*Textbox Watermark*/
+.watermarked 
+{
+	height:20px;
+	width:150px;
+	padding:2px 0 0 2px;
+	border:1px solid #BEBEBE;
+	background-color:#FFFFFF;
+	color: Gray;
+}
+
+.unwatermarked 
+{
+	height:18px;
+	width:148px;
+}
+	
